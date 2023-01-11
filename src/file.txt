@@ -1,0 +1,42 @@
+1. Кардардын атын, шаарын чыгарыныз
+SELECT CustomerName, City  FROM Customers;
+
+2. Кардарлардын олкосун (уникалдуу) чыгарыныз
+SELECT country from Customers;
+
+3. Кардарлардын олкосунун (уникалдуу) санын чыгарыш керек
+SELECT count(country) from Customers;
+
+4.Мексикалык кардарларды чыгарыныз
+SELECT * FROM Customers where Country = 'Mexico';
+
+5. Айдиси#1 болгон кардардын шаарын, дарегин чыгарыныз
+SELECT CustomerID, City, Address  FROM Customers where CustomerID = 1;
+
+6. Германиялык же Испаниялык кардарларды чыгарыныз
+SELECT * FROM Customers where Country = 'Germany' or Country = 'Spain';
+
+7. Кардарлардын олкосун алфавит менен, атын алфавиттин аягы менен сорттоп чыгарыныз
+SELECT * FROM Customers ORDER BY Country, CustomerName DESC;
+
+8. Дареги жазылбаган кардарларды чыгарыныз
+SELECT * FROM Customers where Address = null;
+
+9. Продуктулардын минимальный баасын чыгарыныз
+SELECT min(price) FROM Products;
+
+10. Канча продукт бар экенин чыгарыныз
+SELECT count(ProductName) FROM Products;
+
+11. Баш тамгасы ‘А’ башталган бардык кардарлардын атын чыгарыныз
+SELECT * FROM Customers where CustomerName like('A%');
+
+12. Германиялык, Франциялык, Британиялык кардарларды чыгарыныз
+SELECT * FROM Customers where Country = 'Germany' or Country = 'France' or Country = 'UK';
+
+13. Поставщик менен бир олкодон болгон кардарларды чыгарыныз
+SELECT * FROM Customers
+WHERE Country IN (SELECT Country FROM Suppliers);
+
+14. 1996-жылкы жалпы заказдарды чыгарыныз
+SELECT * FROM Orders where OrderDate between '1996-01-01' and '1996-12-31';
